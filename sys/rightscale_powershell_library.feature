@@ -6,4 +6,3 @@ Feature:  RightScale Powershell library
     * Powershell has modules:
       | RaxHelpers   |
       | Route53Tools |
-
