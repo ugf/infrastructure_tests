@@ -3,4 +3,4 @@ Feature: Aria2
   
   Scenario: was unzipped
     
-    * File exists "/aria2/aria2.exe"
+    * File exists "/aria2/aria2c.exe"
