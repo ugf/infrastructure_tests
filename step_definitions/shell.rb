@@ -7,7 +7,7 @@ Then /^Path contains "([^"]*)"$/ do |dir|
 end
 
 Then /^\$ (.*?)$/ do |command|
-  @output = cmd command
+  p @output = cmd(command)
 end
 
 Then /^Output contains "([^"]*)"$/ do |text|
@@ -16,4 +16,10 @@ end
 
 Then /^\| find "([^"]*)"$/ do |text|
   @output.should include text.downcase
+end
+
+Then /^Output contains:$/ do |lines|
+  lines.raw.each do |line|
+    @output.should include line[0].downcase
+  end
 end
