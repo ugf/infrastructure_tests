@@ -1,3 +1,3 @@
 Then /^File exists "([^"]*)"$/ do |file|
-  File.exist?(file).should be true
+  File.should exist file
 end
