@@ -1,3 +1,4 @@
+@application_server
 Feature:  RightScale Powershell library
 
   Scenario: It is installed
