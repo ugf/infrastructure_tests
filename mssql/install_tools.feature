@@ -3,7 +3,7 @@ Feature: mssql
 
   Scenario: native client is installed
 
-    * Registry key exists "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\SQLNCLI10\CurrentVersion"
+    * Registry key exists "SOFTWARE\Microsoft\Microsoft SQL Server\SQLNCLI10\CurrentVersion"
 
   Scenario: commandline tool is installed
 
