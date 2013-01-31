@@ -3,6 +3,6 @@ Then /^Powershell has modules:$/ do |modules|
   modules_dir = "/windows/system32/WindowsPowershell/v1.0/modules"
 
   modules.raw.each do |m|
-    Dir.should exist "#{modules_dir}/#{m[0]}"
+    Dir.should exist "#{modules_dir}"
   end
 end
