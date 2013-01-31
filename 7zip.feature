@@ -1,5 +1,5 @@
-@application_server
-Feature: 7zip
+  @application_server
+  Feature: 7zip
 
   Scenario: is installed
 
