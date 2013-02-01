@@ -7,11 +7,11 @@ Feature: Chrome
 
   Scenario: has registry setup
 
-    * Registry "Software\Policies\Google\Update" has:
+    * Registry "HKEY_LOCAL_MACHINE\Software\Policies\Google\Update" has:
       | key                          | value |
       | AutoUpdateCheckPeriodMinutes | 0     |
 
-    * Registry "Software\Policies\Google\Chrome" has:
+    * Registry "HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome" has:
       | key                          | value |
       | HomepageIsNewTabPage         | 1     |
       | RestoreOnStartup             | 0     |
