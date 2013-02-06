@@ -1,3 +1,3 @@
 Then /^curl (.*)$/ do |url|
-  @output = 'operational'
+  @output = Curl.get url
 end
