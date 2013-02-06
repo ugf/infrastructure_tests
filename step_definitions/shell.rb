@@ -11,7 +11,7 @@ Then /^\$ (.*?)$/ do |command|
 end
 
 Then /^Output contains "([^"]*)"$/ do |text|
-  @output.should include text.downcase
+  @output.downcase.should include text.downcase
 end
 
 Then /^\| find "([^"]*)"$/ do |text|
