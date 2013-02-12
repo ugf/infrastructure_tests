@@ -1,5 +1,9 @@
+def interpolate(string)
+  eval '"' + string + '"'
+end
+
 def cmd(command)
-  `#{command}`.downcase
+  @output = `#{interpolate command}`.downcase
 end
 
 Then /^Path contains "([^"]*)"$/ do |dir|
@@ -7,7 +11,11 @@ Then /^Path contains "([^"]*)"$/ do |dir|
 end
 
 Then /^\$ (.*?)$/ do |command|
-  p @output = cmd(command)
+  cmd command
+end
+
+Then /^$:$/ do |commands|
+  cmd commands.raw.flatten.join ' '
 end
 
 Then /^Output contains "([^"]*)"$/ do |text|
