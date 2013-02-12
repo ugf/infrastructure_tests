@@ -14,7 +14,7 @@ Then /^\$ (.*?)$/ do |command|
   cmd command
 end
 
-Then /^$:$/ do |commands|
+Then /^\$:$/ do |commands|
   cmd commands.raw.flatten.join ' '
 end
 
