@@ -1,4 +1,5 @@
 def interpolate(string)
+  string = string.gsub '"', '\"'
   eval '"' + string + '"'
 end
 

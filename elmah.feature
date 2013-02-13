@@ -9,7 +9,7 @@ Feature: Elmah
       | -U #{ENV['elmah/database_user']}     |
       | -P #{ENV['elmah/database_password']} |
       | -Q "                                 |
-      | select top 1 *                       |
+      | select top 1 Message                 |
       | from HealthCheck.dbo.ELMAH_Error     |
       | "                                    |
     * Output contains "Message"
