@@ -32,3 +32,9 @@ Then /^Output contains:$/ do |lines|
     @output.should include line[0].downcase
   end
 end
+
+Then /^Output contains "([^"]*)" unless "([^"]*)"$/ do |lines, conditional|
+  lines.raw.each do |line|
+    @output.should include line[0].downcase
+  end unless eval(conditional)
+end
