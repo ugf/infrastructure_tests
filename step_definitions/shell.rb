@@ -20,7 +20,7 @@ Then /^\$:$/ do |commands|
 end
 
 Then /^Output contains "([^"]*)"$/ do |text|
-  @output.downcase.should include text.downcase
+  @output.downcase.should include interpolate(text).downcase
 end
 
 Then /^\| find "([^"]*)"$/ do |text|
