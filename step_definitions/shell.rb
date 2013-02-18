@@ -20,7 +20,7 @@ Then /^\$:$/ do |commands|
 end
 
 Then /^Output contains "([^"]*)"$/ do |text|
-  @output.downcase.should include text.downcase
+  @output.downcase.should include interpolate(text).downcase
 end
 
 Then /^\| find "([^"]*)"$/ do |text|
@@ -31,4 +31,8 @@ Then /^Output contains:$/ do |lines|
   lines.raw.each do |line|
     @output.should include line[0].downcase
   end
+end
+
+Then /^Output contains "([^"]*)" unless "([^"]*)"$/ do |text, conditional|
+  @output.downcase.should include interpolate(text).downcase unless eval(conditional)
 end
