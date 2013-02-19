@@ -29,7 +29,7 @@ end
 
 Then /^Output contains:$/ do |lines|
   lines.raw.each do |line|
-    @output.should match line[0].downcase
+    @output.downcase.should match line[0].downcase
   end
 end
 
