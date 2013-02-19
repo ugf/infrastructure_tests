@@ -18,9 +18,21 @@ Feature: NewGen
     * $ "C:\\Program Files (x86)\\Windows Resource Kits\\Tools\\winhttpcertcfg" -l -c LOCAL_MACHINE\\My -s passivests
     * Output contains "NETWORK SERVICE"
 
-  Scenario: elmah conn
+  Scenario: main_website elmah conn
 
     * $ type c:\\websites\\main_website\\web.config | find "name=""elmah"" connectionString="
+
+    * Output contains:
+      | "Data Source=#{ENV['elmah/logging_server']}" |
+      | Initial Catalog=HealthCheck                  |
+      | Integrated Security=false                    |
+      | "User Id=#{ENV['elmah/database_user']}"      |
+      | "Password=#{ENV['elmah/database_password']}" |
+      | MultipleActiveResultSets=True                |
+
+  Scenario: sts_website elmah conn
+
+    * $ type c:\\websites\\sts_website\\web.config | find "name=""elmah"" connectionString="
 
     * Output contains:
       | "Data Source=#{ENV['elmah/logging_server']}" |
