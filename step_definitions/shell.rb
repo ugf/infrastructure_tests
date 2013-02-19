@@ -3,10 +3,6 @@ def interpolate(string)
   eval '"' + string + '"'
 end
 
-def interpolate1(string)
-  eval '"' + string + '"'
-end
-
 def cmd(command)
   @output = `#{interpolate command}`.downcase
 end
@@ -33,6 +29,6 @@ end
 
 Then /^Output contains:$/ do |lines|
   lines.raw.flatten.each do |line|
-    @output.should match /#{interpolate1(line)}/i
+    @output.should match /#{interpolate(line)}/i
   end
 end
