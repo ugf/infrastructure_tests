@@ -18,3 +18,11 @@ Feature: NewGen
     * $ "C:\\Program Files (x86)\\Windows Resource Kits\\Tools\\winhttpcertcfg" -l -c LOCAL_MACHINE\\My -s passivests
     * Output contains "NETWORK SERVICE"
 
+  Scenario: elmah conn
+
+    * $ type c:\websites\main_website\web.config | find "name=""elmah"" connectionString="
+
+    * Output contains:
+      | Data Source=log.globalincite.biz |
+      | Initial Catalog=HealthCheck      |
+
