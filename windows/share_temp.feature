@@ -3,7 +3,7 @@ Feature: Share temp
 
   Scenario: Is created
 
-    * $ net use temp
+    * $ net share temp
 
     * Output contains:
       | Share name .* temp           |
