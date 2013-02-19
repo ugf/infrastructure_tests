@@ -9,7 +9,7 @@ Feature: NewGen
 
   Scenario: Certificate created
 
-    * $ powershell -command "Get-ChildItem -Recurse Cert: | Where-Object {$_.Subject -like "*passivests*"}"
+    * $ powershell -command "Get-ChildItem -Recurse Cert: | Where-Object {$_.Subject -like '*passivests*'}"
     * Output contains "Directory: Microsoft.PowerShell.Security\\Certificate::LocalMachine\\Root"
 
 
