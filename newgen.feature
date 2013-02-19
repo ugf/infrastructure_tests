@@ -23,10 +23,10 @@ Feature: NewGen
     * $ type c:\\websites\\main_website\\web.config | find "name=""elmah"" connectionString="
 
     * Output contains:
-      | Data Source=#{ENV['elmah/logging_server']} |
-      | Initial Catalog=HealthCheck                |
-      | Integrated Security=false                  |
-      | User Id=#{ENV['elmah/database_user']}      |
-      | Password=#{ENV['elmah/database_password']} |
-      | MultipleActiveResultSets=True              |
+      | "Data Source=#{ENV['elmah/logging_server']}" |
+      | Initial Catalog=HealthCheck                  |
+      | Integrated Security=false                    |
+      | "User Id=#{ENV['elmah/database_user']}"      |
+      | "Password=#{ENV['elmah/database_password']}" |
+      | MultipleActiveResultSets=True                |
 

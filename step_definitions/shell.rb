@@ -29,6 +29,12 @@ end
 
 Then /^Output contains:$/ do |lines|
   lines.raw.flatten.each do |line|
-    @output.should match /#{interpolate(line)}/i
+    if line.start_with?('/')
+      @output.should match /#{(line)}/i
+    elsif line.start_with?('"')
+      @output.should match /#{interpolate(line)}/i
+    else
+      @output.downcase.should include line.downcase
+    end
   end
 end
