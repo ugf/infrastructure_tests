@@ -15,6 +15,6 @@ Feature: NewGen
 
   Scenario: Access granted to certificate
 
-    * $ "C:\Program Files (x86)\Windows Resource Kits\Tools\winhttpcertcfg" -l -c LOCAL_MACHINE\\My -s passivests
+    * $ "C:\\Program Files (x86)\\Windows Resource Kits\\Tools\\winhttpcertcfg" -l -c LOCAL_MACHINE\\My -s passivests
     * Output contains "NETWORK SERVICE"
 
