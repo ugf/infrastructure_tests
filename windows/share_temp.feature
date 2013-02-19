@@ -7,5 +7,5 @@ Feature: Share temp
 
     * Output contains:
       | Share name .* temp           |
-      | Path .* c:\temp              |
       | Permission .* Everyone, READ |
+#      | Path .* c:\temp              |
