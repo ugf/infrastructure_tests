@@ -29,7 +29,7 @@ end
 
 Then /^Output contains:$/ do |lines|
   lines.raw.flatten.each do |line|
-    @output.should match /#{line}/i
+    @output.should match /#{interpolate(line)}/i
   end
 end
 
