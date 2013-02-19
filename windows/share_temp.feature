@@ -8,4 +8,4 @@ Feature: Share temp
     * Output contains:
       | Share name .* temp           |
       | Permission .* Everyone, READ |
-#      | Path .* c:\temp              |
+      | Path .* c:\\temp             |
