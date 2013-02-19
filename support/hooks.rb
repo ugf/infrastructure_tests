@@ -1,5 +1,5 @@
 Before '@route53' do
-  if ENV['route53/domain'].nil? || ENV['route53/domain'].empty?
+  if ENV['route53/domain'].nil?
     puts 'should not use domain for route53'
     ip = ENV['route53/ip'].split '.'
     ENV['route53/prefix'] ||= ip[0]
