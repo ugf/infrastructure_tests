@@ -20,7 +20,7 @@ Feature: Ruby
       | xml-simple  |
       | rr          |
       | rspec       |
-      | simplegov   |
+      | simplecov   |
       | cucumber    |
 
 
