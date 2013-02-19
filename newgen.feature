@@ -29,4 +29,3 @@ Feature: NewGen
       | "User Id=#{ENV['elmah/database_user']}"      |
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
-
