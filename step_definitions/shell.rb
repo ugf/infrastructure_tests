@@ -28,8 +28,8 @@ Then /^\| find "([^"]*)"$/ do |text|
 end
 
 Then /^Output contains:$/ do |lines|
-  lines.raw.each do |line|
-    @output.downcase.should match line[0].downcase
+  lines.raw.flatten.each do |line|
+    @output.should match /#{Regexp.escape line}/mi
   end
 end
 
