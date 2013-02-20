@@ -105,6 +105,6 @@ Feature: NewGen
 
     * $ powershell -command "import-module WebAdministration; Get-Item IIS:\AppPools\*"
     * Output contains:
-      | /main_website *Started/ |
-      | /sts_website *Started/  |
+      | /main_website/ |
+      | /sts_website/  |
 
