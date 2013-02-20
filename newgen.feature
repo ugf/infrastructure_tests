@@ -52,11 +52,11 @@ Feature: NewGen
 
   Scenario: main_website prefix.domain conn
 
-    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
+    * $ type c:\\websites\\main_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
 
-    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
+    * $ type c:\\websites\\main_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
 
@@ -71,32 +71,13 @@ Feature: NewGen
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
 
-  Scenario: sts_website elastic search conn
-
-    * $ type c:\\websites\\main_website\\web.config | find "key=""searchHost"""
-    * Output contains:
-      | value="localhost" |
-
-    * $ type c:\\websites\\main_website\\web.config | find "key=""searchPort"""
-    * Output contains:
-      | value="9200" |
-
   Scenario: sts_website minify conn
 
-    * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
+    * $ type c:\\websites\\sts_website\\web.config | find "compilation debug="
     * Output contains:
       | compilation debug="false" targetFramework="4.5" /> |
 
-    * $ type c:\\websites\\main_website\\web.config | find "dotless minifyCss="
+    * $ type c:\\websites\\sts_website\\web.config | find "dotless minifyCss="
     * Output contains:
       | dotless minifyCss="true" cache="true" web="true" debug="false" |
 
-  Scenario: sts_website prefix.domain conn
-
-    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
-    * Output contains:
-      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
-
-    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
-    * Output contains:
-      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
