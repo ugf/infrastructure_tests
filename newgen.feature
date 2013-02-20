@@ -60,6 +60,16 @@ Feature: NewGen
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
 
+  Scenario: main_website database conn
+
+    * $ type c:\\websites\\main_website\\web.config | find "Data Source="
+    * Output contains:
+      | "Data Source=#{ENV['newgen/database_server']}" |
+
+    * $ type c:\\websites\\main_website\\web.config | find "Integrated Security="
+    * Output contains:
+      | "Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']}" |
+
   Scenario: sts_website elmah conn
 
     * $ type c:\\websites\\sts_website\\web.config | find "name=""elmah"" connectionString="
@@ -80,4 +90,14 @@ Feature: NewGen
     * $ type c:\\websites\\sts_website\\web.config | find "dotless minifyCss="
     * Output contains:
       | dotless minifyCss="true" cache="true" web="true" debug="false" |
+
+  Scenario: sts_website database conn
+
+    * $ type c:\\websites\\sts_website\\web.config | find "Data Source="
+    * Output contains:
+      | "Data Source=#{ENV['newgen/database_server']}" |
+
+    * $ type c:\\websites\\sts_website\\web.config | find "Integrated Security="
+    * Output contains:
+      | "Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']}" |
 
