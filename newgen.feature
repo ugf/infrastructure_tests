@@ -103,7 +103,7 @@ Feature: NewGen
 
   Scenario: IIS websites started
 
-    * $ powershell -command "import-module WebAdministration; Get-Item IIS:\AppPools\*"
+    * $ powershell -command "Set-ExecutionPolicy RemoteSigned; import-module WebAdministration; Get-Item IIS:\AppPools\*"
     * Output contains:
       | /main_website/ |
       | /sts_website/  |
