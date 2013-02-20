@@ -30,15 +30,15 @@ Feature: NewGen
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
 
-    * $ type c:\\websites\\main_website\\web.config | find "key = "searchHost""
+    * $ type c:\\websites\\main_website\\web.config | find "key="searchHost""
 
     * Output contains:
-      | value = "localhost" |
+      | value="localhost" |
 
-    * $ type c:\\websites\\main_website\\web.config | find "key = "searchPort""
+    * $ type c:\\websites\\main_website\\web.config | find "key="searchPort""
 
     * Output contains:
-      | value = "9200" |
+      | value="9200" |
 
     * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
 
@@ -72,15 +72,15 @@ Feature: NewGen
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
 
-    * $ type c:\\websites\\main_website\\web.config | find "key = "searchHost""
+    * $ type c:\\websites\\main_website\\web.config | find "key="searchHost""
 
     * Output contains:
-      | value = "localhost" |
+      | value="localhost" |
 
-    * $ type c:\\websites\\main_website\\web.config | find "key = "searchPort""
+    * $ type c:\\websites\\main_website\\web.config | find "key="searchPort""
 
     * Output contains:
-      | value = "9200" |
+      | value="9200" |
 
     * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
 
