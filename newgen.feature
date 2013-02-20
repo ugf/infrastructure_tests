@@ -30,6 +30,36 @@ Feature: NewGen
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
 
+    * $ type c:\\websites\\main_website\\web.config | find "key = "searchHost""
+
+    * Output contains:
+      | value = "localhost" |
+
+    * $ type c:\\websites\\main_website\\web.config | find "key = "searchPort""
+
+    * Output contains:
+      | value = "9200" |
+
+    * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
+
+    * Output contains:
+      | compilation debug="false" targetFramework="4.5" /> |
+
+    * $ type c:\\websites\\main_website\\web.config | find "dotless minifyCss="
+
+    * Output contains:
+      | dotless minifyCss="true" cache="true" web="true" debug="false" |
+
+    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:80"
+
+    * Output contains:
+      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
+
+    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:81"
+
+    * Output contains:
+      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
+
   Scenario: sts_website elmah conn
 
     * $ type c:\\websites\\sts_website\\web.config | find "name=""elmah"" connectionString="
@@ -41,3 +71,33 @@ Feature: NewGen
       | "User Id=#{ENV['elmah/database_user']}"      |
       | "Password=#{ENV['elmah/database_password']}" |
       | MultipleActiveResultSets=True                |
+
+    * $ type c:\\websites\\main_website\\web.config | find "key = "searchHost""
+
+    * Output contains:
+      | value = "localhost" |
+
+    * $ type c:\\websites\\main_website\\web.config | find "key = "searchPort""
+
+    * Output contains:
+      | value = "9200" |
+
+    * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
+
+    * Output contains:
+      | compilation debug="false" targetFramework="4.5" /> |
+
+    * $ type c:\\websites\\main_website\\web.config | find "dotless minifyCss="
+
+    * Output contains:
+      | dotless minifyCss="true" cache="true" web="true" debug="false" |
+
+    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:80"
+
+    * Output contains:
+      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
+
+    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:81"
+
+    * Output contains:
+      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
