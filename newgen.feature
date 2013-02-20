@@ -101,3 +101,10 @@ Feature: NewGen
     * Output contains:
       | "Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']}" |
 
+  Scenario: IIS websites started
+
+    * $ powershell -command "import-module WebAdministration; Get-Item IIS:\AppPools\*"
+    * Output contains:
+      | /main_website *Started/ |
+      | /sts_website *Started/  |
+
