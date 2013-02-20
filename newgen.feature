@@ -1,4 +1,4 @@
-@application_server
+@application_server @route53
 Feature: NewGen
 
   Scenario: Websites copied
@@ -50,12 +50,12 @@ Feature: NewGen
     * Output contains:
       | dotless minifyCss="true" cache="true" web="true" debug="false" |
 
-    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:80"
+    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
 
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
 
-    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:81"
+    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
 
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
@@ -92,12 +92,12 @@ Feature: NewGen
     * Output contains:
       | dotless minifyCss="true" cache="true" web="true" debug="false" |
 
-    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:80"
+    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
 
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
 
-    * $ type c:\\websites\\sts_website\\web.config | find "%route53/prefix%.%route53/domain%:81"
+    * $ type c:\\websites\\sts_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
 
     * Output contains:
       | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
