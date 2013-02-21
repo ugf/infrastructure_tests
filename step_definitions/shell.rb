@@ -5,6 +5,7 @@ end
 
 def cmd(command)
   @output = `#{interpolate command}`.downcase
+  p "OUTPUT: #{@output}"
 end
 
 Then /^Path contains "([^"]*)"$/ do |dir|
