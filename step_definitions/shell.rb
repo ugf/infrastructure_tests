@@ -35,7 +35,7 @@ Then /^\$:$/ do |commands|
   cmd commands.raw.flatten.join ' '
 end
 
-Then /^Output contains "([^"]*)"$/ do |text|
+Then /^Output contains "(.*)"$/ do |text|
   verify @output, text
 end
 

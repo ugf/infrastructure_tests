@@ -6,22 +6,23 @@ Feature: NewGen
     * Directory exists "C:\websites\main_website"
     * Directory exists "C:\websites\sts_website"
 
-
   Scenario: Certificate created
 
     * $ powershell -command "Get-ChildItem -Recurse Cert: | Where-Object {$_.Subject -like '*passivests*'}"
     * Output contains "Directory: Microsoft.PowerShell.Security\\Certificate::LocalMachine\\Root"
 
-
   Scenario: Access granted to certificate
 
-    * $ "C:\Program Files (x86)\Windows Resource Kits\Tools\winhttpcertcfg" -l -c LOCAL_MACHINE\My -s passivests
+    * $:
+      | "C:\Program Files (x86)\Windows Resource Kits\Tools\winhttpcertcfg" |
+      | -l -c LOCAL_MACHINE\My -s passivests                                |
     * Output contains "NETWORK SERVICE"
 
   Scenario: main_website elmah conn
 
-    * $ type c:\\websites\\main_website\\web.config | find "name=""elmah"" connectionString="
-
+    * $:
+      | type c:\\websites\\main_website\\web.config |
+      | \| find "name=""elmah"" connectionString="  |
     * Output contains:
       | Data Source=#{ENV['elmah/logging_server']} |
       | Initial Catalog=HealthCheck                |
@@ -32,27 +33,21 @@ Feature: NewGen
 
   Scenario: main_website elastic search conn
 
-    * $ type c:\\websites\\main_website\\web.config | find "key=""searchHost"""
+    * $ type c:\\websites\\main_website\\web.config
     * Output contains:
-      | value="localhost" |
-
-    * $ type c:\\websites\\main_website\\web.config | find "key=""searchPort"""
-    * Output contains:
-      | value="9200" |
+      | key="searchHost" value="localhost" |
+      | key="searchPort" value="9200"      |
 
   Scenario: main_website minify conn
 
-    * $ type c:\\websites\\main_website\\web.config | find "compilation debug="
+    * $ type c:\\websites\\main_website\\web.config
     * Output contains:
-      | compilation debug="false" targetFramework="4.5" /> |
-
-    * $ type c:\\websites\\main_website\\web.config | find "dotless minifyCss="
-    * Output contains:
+      | compilation debug="false" targetFramework="4.5"                |
       | dotless minifyCss="true" cache="true" web="true" debug="false" |
 
   Scenario: main_website prefix.domain conn
 
-    * $ type c:\\websites\\main_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
+    * $ type c:\\websites\\main_website\\web.config
     * Output contains:
       | #{ENV['route53/prefix']}.#{ENV['route53/domain']}:80 |
 
