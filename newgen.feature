@@ -74,12 +74,12 @@ Feature: NewGen
 
     * $ type c:\\websites\\sts_website\\web.config | find "name=""elmah"" connectionString="
     * Output contains:
-      | "Data Source=#{ENV['elmah/logging_server']}" |
-      | Initial Catalog=HealthCheck                  |
-      | Integrated Security=false                    |
-      | "User Id=#{ENV['elmah/database_user']}"      |
-      | "Password=#{ENV['elmah/database_password']}" |
-      | MultipleActiveResultSets=True                |
+      | Data Source=#{ENV['elmah/logging_server']} |
+      | Initial Catalog=HealthCheck                |
+      | Integrated Security=false                  |
+      | User Id=#{ENV['elmah/database_user']}      |
+      | Password=#{ENV['elmah/database_password']} |
+      | MultipleActiveResultSets=True              |
 
   Scenario: sts_website minify conn
 
@@ -93,18 +93,18 @@ Feature: NewGen
 
   Scenario: sts_website database conn
 
-    * $ type c:\\websites\\sts_website\\web.config | find "Data Source="
-    * Output contains:
-      | "Data Source=#{ENV['newgen/database_server']}" |
+    * $ type c:\\websites\\sts_website\\web.config"
+    * Output contains "Data Source=#{ENV['newgen/database_server']}"
 
     * $ type c:\\websites\\sts_website\\web.config | find "Integrated Security="
     * Output contains:
-      | "Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']}" |
+      | Integrated Security=false |
+      | User Id=#{ENV['newgen/database_user']} |
+      | Password=#{ENV['newgen/database_password']} |
 
   Scenario: IIS websites started
 
     * $ %windir%\\SysNative\\WindowsPowerShell\\v1.0\\powershell -command "Set-ExecutionPolicy RemoteSigned -force; import-module WebAdministration; Get-Item IIS:\\AppPools\\*"
     * Output contains:
-      | /main_website *Started/ |
-      | /sts_website *Started/  |
-
+      | main_website .* Started |
+      | sts_website .* Started  |
