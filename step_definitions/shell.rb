@@ -1,5 +1,16 @@
 def verify(actual, expected)
-  actual.should match /#{Regexp.escape interpolate expected}/i
+  should_include expected, actual
+rescue
+  should_match expected, actual
+end
+
+def should_include(expected, actual)
+  actual.downcase.should(
+    include (interpolate expected).downcase)
+end
+
+def should_match(expected, actual)
+  actual.should match /#{interpolate expected}/i
 end
 
 def interpolate(string)
