@@ -103,8 +103,8 @@ Feature: NewGen
 
   Scenario: IIS websites started
 
-    * $ powershell -command "Set-ExecutionPolicy RemoteSigned; import-module WebAdministration; Get-Item IIS:\AppPools\*"
+    * $ %windir%\\SysNative\\WindowsPowerShell\\v1.0\\powershell -command "Set-ExecutionPolicy RemoteSigned -force; import-module WebAdministration; Get-Item IIS:\\AppPools\\*"
     * Output contains:
-      | /main_website/ |
-      | /sts_website/  |
+      | /main_website *Started/ |
+      | /sts_website *Started/  |
 
