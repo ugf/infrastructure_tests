@@ -15,7 +15,7 @@ Feature: NewGen
 
   Scenario: Access granted to certificate
 
-    * $ "C:\\Program Files (x86)\\Windows Resource Kits\\Tools\\winhttpcertcfg" -l -c LOCAL_MACHINE\\My -s passivests
+    * $ "C:\Program Files (x86)\Windows Resource Kits\Tools\winhttpcertcfg" -l -c LOCAL_MACHINE\My -s passivests
     * Output contains "NETWORK SERVICE"
 
   Scenario: main_website elmah conn
@@ -23,12 +23,12 @@ Feature: NewGen
     * $ type c:\\websites\\main_website\\web.config | find "name=""elmah"" connectionString="
 
     * Output contains:
-      | "Data Source=#{ENV['elmah/logging_server']}" |
-      | Initial Catalog=HealthCheck                  |
-      | Integrated Security=false                    |
-      | "User Id=#{ENV['elmah/database_user']}"      |
-      | "Password=#{ENV['elmah/database_password']}" |
-      | MultipleActiveResultSets=True                |
+      | Data Source=#{ENV['elmah/logging_server']} |
+      | Initial Catalog=HealthCheck                |
+      | Integrated Security=false                  |
+      | User Id=#{ENV['elmah/database_user']}      |
+      | Password=#{ENV['elmah/database_password']} |
+      | MultipleActiveResultSets=True              |
 
   Scenario: main_website elastic search conn
 
@@ -54,21 +54,21 @@ Feature: NewGen
 
     * $ type c:\\websites\\main_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80"
     * Output contains:
-      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:80" |
+      | #{ENV['route53/prefix']}.#{ENV['route53/domain']}:80 |
 
     * $ type c:\\websites\\main_website\\web.config | find "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81"
     * Output contains:
-      | "#{ENV['route53/prefix']}.#{ENV['route53/domain']}:81" |
+      | #{ENV['route53/prefix']}.#{ENV['route53/domain']}:81 |
 
   Scenario: main_website database conn
 
     * $ type c:\\websites\\main_website\\web.config | find "Data Source="
     * Output contains:
-      | "Data Source=#{ENV['newgen/database_server']}" |
+      | Data Source=#{ENV['newgen/database_server']} |
 
     * $ type c:\\websites\\main_website\\web.config | find "Integrated Security="
     * Output contains:
-      | "Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']}" |
+      | Integrated Security=false;User Id=#{ENV['newgen/database_user']};Password=#{ENV['newgen/database_password']} |
 
   Scenario: sts_website elmah conn
 
@@ -98,8 +98,8 @@ Feature: NewGen
 
     * $ type c:\\websites\\sts_website\\web.config | find "Integrated Security="
     * Output contains:
-      | Integrated Security=false |
-      | User Id=#{ENV['newgen/database_user']} |
+      | Integrated Security=false                   |
+      | User Id=#{ENV['newgen/database_user']}      |
       | Password=#{ENV['newgen/database_password']} |
 
   Scenario: IIS websites started
