@@ -86,8 +86,8 @@ Feature: NewGen
   Scenario: sts_website database conn
 
     * $:
-      | type c:\\websites\\sts_website\\web.config" |
-      | \| find "name=""SystemConnection"""         |
+      | type c:\\websites\\sts_website\\web.config |
+      | \| find "name=""SystemConnection"""        |
     * Output contains:
       | Data Source=#{ENV['newgen/database_server']} |
       | Integrated Security=false                    |
