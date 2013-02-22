@@ -6,6 +6,6 @@ Feature: Share temp
     * $ net share temp
 
     * Output contains:
-      | /Share name .* temp/           |
-      | /Permission .* Everyone, READ/ |
-      | /Path .* c:\\\\temp/           |
+      | Share name .* temp           |
+      | Permission .* Everyone, READ |
+      | Path .* c:\\\\temp           |
