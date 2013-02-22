@@ -1,5 +1,5 @@
 def verify(actual, expected)
-  actual.should match /#{interpolate expected}/i
+  actual.should match /#{Regexp.escape interpolate expected}/i
 end
 
 def interpolate(string)
