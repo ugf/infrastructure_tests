@@ -1,14 +1,9 @@
-def interpolate(string)
-  string = string.gsub '"', '\"'
-  eval '"' + string + '"'
-end
-
 def cmd(command)
-  @output = `#{interpolate command}`.downcase
+  @output = `#{interpolate command}`
 end
 
 Then /^Path contains "([^"]*)"$/ do |dir|
-  cmd('set path').should include dir.downcase
+  verify cmd('set path'), dir
 end
 
 Then /^\$ (.*?)$/ do |command|
@@ -19,22 +14,14 @@ Then /^\$:$/ do |commands|
   cmd commands.raw.flatten.join ' '
 end
 
-Then /^Output contains "([^"]*)"$/ do |text|
-  @output.downcase.should include interpolate(text).downcase
+Then /^Output contains "(.*)"$/ do |text|
+  verify @output, text
 end
 
 Then /^\| find "([^"]*)"$/ do |text|
-  @output.should include text.downcase
+  verify @output, text
 end
 
 Then /^Output contains:$/ do |lines|
-  lines.raw.flatten.each do |line|
-    if line.start_with?('/')
-      @output.should match /#{(line[1..-2])}/i
-    elsif line.start_with?('"')
-      @output.should match /#{interpolate(line[1..-2])}/i
-    else
-      @output.downcase.should include line.downcase
-    end
-  end
+  lines.raw.flatten.each { |line| verify @output, line }
 end
