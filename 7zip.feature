@@ -1,4 +1,4 @@
-@application_server @logging_server
+@application_server @logging_server @database_server
 Feature: 7zip
 
   Scenario: is installed
