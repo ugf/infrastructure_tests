@@ -1,19 +1,6 @@
 @application_server
 Feature: NewGen sts website
 
-  Scenario: sts_website elmah conn
-
-    * $:
-      | type c:\\websites\\sts_website\\web.config |
-      | \| find "name=""elmah"" connectionString=" |
-    * Output contains:
-      | Data Source=#{ENV['elmah/logging_server']} |
-      | Initial Catalog=HealthCheck                |
-      | Integrated Security=false                  |
-      | User Id=#{ENV['elmah/database_user']}      |
-      | Password=#{ENV['elmah/database_password']} |
-      | MultipleActiveResultSets=True              |
-
   Scenario: sts_website minify conn
 
     * $ type c:\\websites\\sts_website\\web.config
