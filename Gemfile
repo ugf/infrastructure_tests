@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-source 'http://gems.globalincite.biz'
+#source 'http://gems.globalincite.biz'
 
 gem 'us_utils'
 
