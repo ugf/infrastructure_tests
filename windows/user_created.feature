@@ -1,4 +1,4 @@
-@application_server
+@application_server @app_server
 Feature: User Created
 
   Scenario: User exists
