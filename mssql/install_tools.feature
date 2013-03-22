@@ -1,4 +1,4 @@
-@application_server
+@application_server @app_server
 Feature: mssql
 
   Scenario: native client is installed
