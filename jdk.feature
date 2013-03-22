@@ -1,4 +1,4 @@
-@application_server
+@application_server @app_server
 Feature: jdk
 
   Scenario: is installed
