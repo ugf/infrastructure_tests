@@ -1,4 +1,4 @@
-@application_server @logging_server
+@application_server @app_server
 Feature: Git
 
   Scenario: is installed
