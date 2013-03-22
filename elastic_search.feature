@@ -1,4 +1,4 @@
-@application_server
+@application_server @app_server
 Feature: Elastic Search
 
   Scenario: is installed with plugins n' all
