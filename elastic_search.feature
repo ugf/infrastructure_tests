@@ -6,7 +6,7 @@ Feature: Elastic Search
     * Files exist:
       | c:\elastic_search\bin\elasticsearch.bat |
       | c:\elastic_search\plugins\bigdesk       |
-      | c:\elastic_search\plugins\head          |
+      | c:\elastic_search\plugins\header        |
 
   Scenario: it is running
 
